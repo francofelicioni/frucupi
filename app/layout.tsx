@@ -16,11 +16,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Frucupí Café | Café y cookies en Belgrano, pet friendly",
+  title: "Frucupi Café | Café y cookies en Belgrano, pet friendly",
   description:
-    "Frucupí Café — café de especialidad, cookies gourmet y brunch en Moldes & Juramento, Belgrano. Pet friendly: agua y snacks para peludos. Abierto todos los días de 8 a 20hs.",
+    "Frucupi Café — café de especialidad, cookies gourmet y brunch en Moldes & Juramento, Belgrano. Pet friendly: agua y snacks para peludos. Abierto todos los días de 8 a 20hs.",
   openGraph: {
-    title: "Frucupí Café",
+    title: "Frucupi Café",
     description:
       "Café y cookies para humanos, agua y snacks para peludos. Moldes & Juramento, Belgrano.",
     type: "website",

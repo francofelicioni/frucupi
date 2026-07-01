@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="relative h-screen min-h-[600px] w-full overflow-hidden">
       <Image
         src="/images/lifestyle/cafe-interior-terrazzo-tables-terracotta-chairs-dog-pastry-case.png"
-        alt="Interior de Frucupí Café con mesas de terrazo, sillas terracota y vitrina de pastelería"
+        alt="Interior de Frucupi Café con mesas de terrazo, sillas terracota y vitrina de pastelería"
         fill
         priority
         className="object-cover"
@@ -16,14 +16,14 @@ export default function Hero() {
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
         <Image
           src="/images/logos/logo.jpg"
-          alt="Frucupí Café"
+          alt="Frucupi Café"
           width={110}
           height={110}
           className="rounded-full shadow-lg mb-6"
           priority
         />
         <h1 className="font-serif text-5xl md:text-7xl text-white drop-shadow-md">
-          Frucupí Café
+          Frucupi Café
         </h1>
         <p className="mt-4 font-sans text-lg md:text-xl text-cream max-w-xl">
           Café y cookies para humanos 👩🏼 · Agua y snacks para peludos 🐾

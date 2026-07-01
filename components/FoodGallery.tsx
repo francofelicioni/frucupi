@@ -7,11 +7,11 @@ const images = [
   },
   {
     src: "/images/food/flat-white-latte-art-danish-pastry-storefront-background.jpg",
-    alt: "Flat white y danish de Frucupí Café",
+    alt: "Flat white y danish de Frucupi Café",
   },
   {
     src: "/images/food/takeaway-cup-frucupi-logo-croissant-kraft-paper-bag.jpg",
-    alt: "Café para llevar y croissant en bolsa de papel Frucupí",
+    alt: "Café para llevar y croissant en bolsa de papel Frucupi",
   },
   {
     src: "/images/food/iced-coffee-caramel-drizzle-pour-glass-cup.jpg",
@@ -135,7 +135,7 @@ const images = [
   },
   {
     src: "/images/food/takeaway-cup-croissant-kraft-paper-bag-frucupi-sticker.jpg",
-    alt: "Croissant y café para llevar con sticker de Frucupí",
+    alt: "Croissant y café para llevar con sticker de Frucupi",
   },
   {
     src: "/images/food/takeaway-cup-frucupi-sticker-latte-art-lid-off.jpg",

@@ -47,12 +47,6 @@ export default function Location() {
               Instagram
             </a>
             <a
-              href="tel:+541165664104"
-              className="bg-cream hover:bg-cream-dark transition-colors text-ink px-5 py-2.5 rounded-full text-sm font-sans"
-            >
-              011 6566-4104
-            </a>
-            <a
               href="https://www.pedidosya.com.ar/restaurantes/buenos-aires/frucupi--belgrano-71275fc3-ee55-4893-ba3a-ad108c2cd7a5-menu"
               target="_blank"
               rel="noopener noreferrer"
@@ -65,7 +59,7 @@ export default function Location() {
 
         <div className="relative h-80 md:h-full min-h-[320px] rounded-2xl overflow-hidden reveal">
           <iframe
-            title="Ubicación de Frucupí Café"
+            title="Ubicación de Frucupi Café"
             src="https://www.google.com/maps?q=Frucupi+Cafe,+Moldes+2110,+Buenos+Aires&output=embed"
             width="100%"
             height="100%"

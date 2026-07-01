@@ -9,7 +9,7 @@ export default function About() {
             Nuestra Historia
           </h2>
           <p className="text-ink/80 leading-relaxed mb-4">
-            Frucupí nació en la esquina de Moldes y Juramento con una idea simple:
+            Frucupi nació en la esquina de Moldes y Juramento con una idea simple:
             un café de barrio donde el buen café, la pastelería casera y las cookies
             gourmet compartan mesa con quienes más queremos — incluidos los de
             cuatro patas.
@@ -21,7 +21,7 @@ export default function About() {
             recomendarte el sabor del mes.
           </p>
           <p className="text-ink/80 leading-relaxed">
-            Y porque en Frucupí las mascotas también son bienvenidas, siempre hay
+            Y porque en Frucupi las mascotas también son bienvenidas, siempre hay
             agua fresca y snacks para peludos esperando en la puerta.
           </p>
 
@@ -45,7 +45,7 @@ export default function About() {
           <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden col-span-2">
             <Image
               src="/images/food/cinnamon-rolls-strawberry-chocolate-glaze-marble-board.jpg"
-              alt="Rolls dulces de Frucupí Café"
+              alt="Rolls dulces de Frucupi Café"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -54,7 +54,7 @@ export default function About() {
           <div className="relative h-48 rounded-2xl overflow-hidden">
             <Image
               src="/images/food/pink-flower-latte-art-closeup-white-cup.jpg"
-              alt="Latte art de Frucupí Café"
+              alt="Latte art de Frucupi Café"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 50vw, 25vw"
@@ -63,7 +63,7 @@ export default function About() {
           <div className="relative h-48 rounded-2xl overflow-hidden">
             <Image
               src="/images/food/four-gourmet-cookies-chocolate-pistachio-orange-tray.jpg"
-              alt="Cookies gourmet de Frucupí Café"
+              alt="Cookies gourmet de Frucupi Café"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 50vw, 25vw"

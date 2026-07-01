@@ -20,7 +20,7 @@ const reviews = [
 ];
 
 const WRITE_REVIEW_URL =
-  "https://search.google.com/local/writereview?placeid=0x95bcb5007818cda1:0x2c890b3d3978e50";
+  "https://www.google.com/maps/place/Frucupi+Cafe/@-34.5635766,-58.462209,17z/data=!4m8!3m7!1s0x95bcb5007818cda1:0x2c890b3d3978e50!8m2!3d-34.5635766!4d-58.4596341!9m1!1b1!16s%2Fg%2F11yq_7mf_7?entry=ttu&g_ep=EgoyMDI2MDYyOC4wIKXMDSoASAFQAw%3D%3D";
 
 export default function Reviews() {
   return (

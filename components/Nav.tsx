@@ -32,7 +32,7 @@ export default function Nav() {
         <a href="#" className="flex items-center gap-2">
           <Image
             src="/images/logos/logo.jpg"
-            alt="Frucupí Café"
+            alt="Frucupi Café"
             width={40}
             height={40}
             className="object-contain rounded-full"
@@ -42,7 +42,7 @@ export default function Nav() {
               scrolled ? "text-primary" : "text-white"
             }`}
           >
-            Frucupí
+            Frucupi
           </span>
         </a>
 

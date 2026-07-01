@@ -16,12 +16,12 @@ export default function Footer() {
         <div className="flex items-center gap-3">
           <Image
             src="/images/logos/logo.jpg"
-            alt="Frucupí Café"
+            alt="Frucupi Café"
             width={44}
             height={44}
             className="rounded-full"
           />
-          <span className="font-serif text-xl">Frucupí Café</span>
+          <span className="font-serif text-xl">Frucupi Café</span>
         </div>
 
         <nav className="flex flex-wrap gap-6 justify-center">
@@ -40,7 +40,7 @@ export default function Footer() {
           href="https://www.instagram.com/frucupi.cafe/"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Instagram de Frucupí Café"
+          aria-label="Instagram de Frucupi Café"
           className="text-cream/80 hover:text-white transition-colors"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -50,7 +50,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-cream/10 py-4 text-center text-xs text-cream/60">
-        © {new Date().getFullYear()} Frucupí Café. Moldes &amp; Juramento, Belgrano.
+        © {new Date().getFullYear()} Frucupi Café. Moldes &amp; Juramento, Belgrano.
       </div>
     </footer>
   );
