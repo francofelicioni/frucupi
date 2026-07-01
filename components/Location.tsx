@@ -1,3 +1,5 @@
+import { WHATSAPP_URL } from "@/lib/contact";
+
 const amenities = [
   { icon: "🐾", label: "Pet Friendly — agua y snacks para peludos" },
   { icon: "🥐", label: "Pastelería y cookies horneadas en el local" },
@@ -38,6 +40,14 @@ export default function Location() {
           </div>
 
           <div className="flex flex-wrap gap-3">
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-[#1da851] transition-colors text-white px-5 py-2.5 rounded-full text-sm font-sans"
+            >
+              WhatsApp
+            </a>
             <a
               href="https://www.instagram.com/frucupi.cafe/"
               target="_blank"
