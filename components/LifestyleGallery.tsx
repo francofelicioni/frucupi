@@ -23,7 +23,11 @@ const images = [
   {
     src: "/images/lifestyle/promo-graphic-take-away-coffee-illustration-yellow-v2.jpg",
     alt: "Ilustración de café para llevar de Frucupi Café",
-  }
+  },
+  {
+    src: "/images/food/pistachio-matcha-cookie-white-drizzle-cafe-interior.jpg",
+    alt: "Cookie de pistacho con glaseado blanco",
+  },
 ];
 
 function getSlidesPerView(width: number) {

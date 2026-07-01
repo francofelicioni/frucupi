@@ -1,3 +1,6 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 
 const images = [
@@ -12,10 +15,6 @@ const images = [
   {
     src: "/images/food/takeaway-cup-frucupi-logo-croissant-kraft-paper-bag.jpg",
     alt: "Café para llevar y croissant en bolsa de papel Frucupi",
-  },
-  {
-    src: "/images/food/iced-coffee-caramel-drizzle-pour-glass-cup.jpg",
-    alt: "Café helado con caramelo sirviéndose en vaso de vidrio",
   },
   {
     src: "/images/food/cappuccino-latte-art-ham-cheese-sandwich-breakfast.jpg",
@@ -106,16 +105,8 @@ const images = [
     alt: "Cookies de chocolate con salsa de chocolate para dipear",
   },
   {
-    src: "/images/food/pistachio-matcha-cookie-white-drizzle-cafe-interior.jpg",
-    alt: "Cookie de pistacho con glaseado blanco",
-  },
-  {
     src: "/images/food/cinnamon-roll-closeup-hands-cream-cheese-frosting.jpg",
     alt: "Roll de canela con frosting de queso crema",
-  },
-  {
-    src: "/images/food/hands-holding-chocolate-caramel-cookie-latte-table.jpg",
-    alt: "Manos sosteniendo cookie de chocolate y caramelo junto a un latte",
   },
   {
     src: "/images/food/key-lime-cookie-closeup-white-plate.jpg",
@@ -133,21 +124,47 @@ const images = [
     src: "/images/food/lemon-poppyseed-cake-slices-glass-table-closeup.jpg",
     alt: "Budín de limón y semillas de amapola en mesa de vidrio",
   },
-  {
-    src: "/images/food/takeaway-cup-croissant-kraft-paper-bag-frucupi-sticker.jpg",
-    alt: "Croissant y café para llevar con sticker de Frucupi",
-  },
-  {
-    src: "/images/food/takeaway-cup-frucupi-sticker-latte-art-lid-off.jpg",
-    alt: "Vaso para llevar con latte art y tapa abierta",
-  },
-  {
-    src: "/images/food/hastext/fresh-baked-croissants-tray-golden-glaze-closeup.jpg",
-    alt: "Croissants recién horneados con glaseado dorado en bandeja",
-  },
+
 ];
 
 export default function FoodGallery() {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+
+  const goToPrevious = useCallback(() => {
+    setLightboxIndex((index) =>
+      index === null ? null : (index - 1 + images.length) % images.length,
+    );
+  }, []);
+
+  const goToNext = useCallback(() => {
+    setLightboxIndex((index) =>
+      index === null ? null : (index + 1) % images.length,
+    );
+  }, []);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeLightbox();
+      if (event.key === "ArrowLeft") goToPrevious();
+      if (event.key === "ArrowRight") goToNext();
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [lightboxIndex, closeLightbox, goToPrevious, goToNext]);
+
+  const activeImage =
+    lightboxIndex === null ? null : images[lightboxIndex];
+
   return (
     <section id="galeria-food" className="pt-20 md:pt-28 pb-8 md:pb-10 bg-cream">
       <div className="max-w-7xl mx-auto px-4">
@@ -156,9 +173,12 @@ export default function FoodGallery() {
         </h2>
         <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3">
           {images.map((img, i) => (
-            <div
+            <button
               key={img.src}
-              className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden group"
+              type="button"
+              onClick={() => setLightboxIndex(i)}
+              aria-label={`Ampliar: ${img.alt}`}
+              className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden group cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-cream"
             >
               <Image
                 src={img.src}
@@ -168,10 +188,113 @@ export default function FoodGallery() {
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
                 sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
               />
-            </div>
+            </button>
           ))}
         </div>
       </div>
+
+      {activeImage && lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink/90 p-4 sm:p-8"
+          role="dialog"
+          aria-modal="true"
+          aria-label={activeImage.alt}
+          onClick={closeLightbox}
+        >
+          <button
+            type="button"
+            onClick={closeLightbox}
+            aria-label="Cerrar imagen ampliada"
+            className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-primary shadow-md transition hover:bg-white"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <path
+                d="M18 6L6 18M6 6l12 12"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              goToPrevious();
+            }}
+            aria-label="Imagen anterior"
+            className="absolute left-3 top-1/2 z-10 hidden -translate-y-1/2 sm:flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-primary shadow-md transition hover:bg-white"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <path
+                d="M15 18l-6-6 6-6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              goToNext();
+            }}
+            aria-label="Imagen siguiente"
+            className="absolute right-3 top-1/2 z-10 hidden -translate-y-1/2 sm:flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-primary shadow-md transition hover:bg-white"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <path
+                d="M9 18l6-6-6-6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          <div
+            className="relative h-[min(85vh,900px)] w-full max-w-5xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <Image
+              src={activeImage.src}
+              alt={activeImage.alt}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
+          </div>
+
+          <p className="absolute bottom-4 left-1/2 max-w-2xl -translate-x-1/2 px-4 text-center text-sm text-white/80">
+            {lightboxIndex + 1} / {images.length}
+          </p>
+        </div>
+      )}
     </section>
   );
 }
