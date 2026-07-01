@@ -113,27 +113,60 @@ const images = [
     src: "/images/food/cinnamon-roll-closeup-hands-cream-cheese-frosting.jpg",
     alt: "Roll de canela con frosting de queso crema",
   },
+  {
+    src: "/images/food/hands-holding-chocolate-caramel-cookie-latte-table.jpg",
+    alt: "Manos sosteniendo cookie de chocolate y caramelo junto a un latte",
+  },
+  {
+    src: "/images/food/key-lime-cookie-closeup-white-plate.jpg",
+    alt: "Cookie key lime en plato blanco",
+  },
+  {
+    src: "/images/food/latte-cinnamon-roll-overhead-marble-table.jpg",
+    alt: "Latte y roll de canela vistos desde arriba en mesa de mármol",
+  },
+  {
+    src: "/images/food/latte-two-croissants-marble-table.jpg",
+    alt: "Latte con dos croissants en mesa de mármol",
+  },
+  {
+    src: "/images/food/lemon-poppyseed-cake-slices-glass-table-closeup.jpg",
+    alt: "Budín de limón y semillas de amapola en mesa de vidrio",
+  },
+  {
+    src: "/images/food/takeaway-cup-croissant-kraft-paper-bag-frucupi-sticker.jpg",
+    alt: "Croissant y café para llevar con sticker de Frucupí",
+  },
+  {
+    src: "/images/food/takeaway-cup-frucupi-sticker-latte-art-lid-off.jpg",
+    alt: "Vaso para llevar con latte art y tapa abierta",
+  },
+  {
+    src: "/images/food/hastext/fresh-baked-croissants-tray-golden-glaze-closeup.jpg",
+    alt: "Croissants recién horneados con glaseado dorado en bandeja",
+  },
 ];
 
 export default function FoodGallery() {
   return (
-    <section id="galeria-food" className="py-20 md:py-28 bg-cream">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="font-serif text-4xl md:text-5xl text-center text-primary mb-12 reveal">
+    <section id="galeria-food" className="pt-20 md:pt-28 pb-8 md:pb-10 bg-cream">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="font-serif text-4xl md:text-5xl text-center text-primary mb-8 md:mb-10 reveal">
           Lo Que Servimos
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 reveal-stagger">
+        <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-3">
           {images.map((img, i) => (
             <div
-              key={i}
-              className="relative aspect-square rounded-xl overflow-hidden group"
+              key={img.src}
+              className="relative aspect-square rounded-lg sm:rounded-xl overflow-hidden group"
             >
               <Image
                 src={img.src}
                 alt={img.alt}
                 fill
+                priority={i < 6}
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
-                sizes="(max-width: 768px) 50vw, 25vw"
+                sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 16vw"
               />
             </div>
           ))}
